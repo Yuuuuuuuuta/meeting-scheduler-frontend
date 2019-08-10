@@ -1,73 +1,54 @@
 <template>
-  <v-card>
+  <v-sheet
+    height="400"
+    class="overflow-hidden"
+  >
     <v-navigation-drawer
-      expand-on-hover
-      permanent
+      v-model="this.$store.state.navbarToglle"
+      absolute
+      temporary
     >
-      <template v-slot:prepend>
-        <v-list>
-          <v-list-item>
-            <v-list-item-avatar>
-              <v-img src=""></v-img>
-            </v-list-item-avatar>
-          </v-list-item>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src=""></v-img>
+        </v-list-item-avatar>
 
-          <v-list-item
-            link
-            two-line
-          >
-            <v-list-item-content>
-              <v-list-item-title class="title">Sample Name</v-list-item-title>
-              <v-list-item-subtitle>xxxx.yyyy@gmail.com</v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-icon>mdi-menu-down</v-icon>
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
-      </template>
+        <v-list-item-content>
+          <v-list-item-title>John Leider</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item link>
+      <v-list dense>
+
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
           <v-list-item-icon>
-            <v-icon>mdi-folder</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>My Files</v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-account-multiple</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Shared with me</v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-star</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Starred</v-list-item-title>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+  </v-sheet>
 </template>
 
 <script>
   export default {
-    name: 'Navbar',
     data () {
       return {
         items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-          { title: 'Photos', icon: 'mdi-image' },
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'Home', icon: 'dashboard' },
+          { title: 'About', icon: 'question_answer' },
         ],
-        right: null,
       }
-    },
+    }
   }
 </script>
