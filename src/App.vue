@@ -14,8 +14,8 @@
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar> -->
-    <Navbar
-      style="height:100%"></Navbar>
+    <Toolbar></Toolbar>
+    <Navbar style="height:100%"></Navbar>
 
     <!-- <v-content>
       <HelloWorld/>
@@ -24,24 +24,17 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
+import Toolbar from "./components/Toolbar";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
     Navbar,
+    Toolbar
   },
-  data: () => ({
-    //
-  }),
+  data() {
+    return {};
+  }
 };
 </script>
-
-<style>
-.navbar {
-
-}
-
-</style>
